@@ -41,28 +41,25 @@ namespace ApiClientApp
             {
                 barcodeValue = $"https://josemrom1.github.io/Pbmalaga/generador.html?nombre={safeUser}&telefono={safeTelefono}&dni={safeDni}",
                 barcodeFormat = "QR",
-                logoText = "Peña Betica de Malaga",
-                organizationName = "Jose Maria Romero Lerida",
+                logoText = "Peña Bética de Málaga",
+                organizationName = user,
                 description = "Carnet de Socio",
                 colorPreset = "green",
                 expirationDays = 365,
-                color = "#15803d",
+                color = "#007A33",
                 logoURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
                 iconURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
-                //stripURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
                 primaryFields = new[]
                 {
                     new { label = "Usuario", value = user ?? string.Empty }
+                },
+                headerFields = new[]
+                {
+                    new { label = "Temp", value = "26-27" }
                 }
             };
 
             var json = JsonSerializer.Serialize(payload);
-
-            Console.WriteLine("=== WalletWallet create pass API ===");
-            Console.WriteLine($"curl -X POST {url} \\");
-            Console.WriteLine("  -H \"Content-Type: application/json\" \\");
-            Console.WriteLine("  -H \"Authorization: Bearer " + token + "\" \\");
-            Console.WriteLine("  -d '" + json + "'");
 
             using var request = new HttpRequestMessage(HttpMethod.Post, url)
             {

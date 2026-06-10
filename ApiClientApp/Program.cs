@@ -51,10 +51,6 @@ namespace ApiClientApp
                     var sheets = new GoogleSheetsClient(credentialsJsonPath: credentialsPath);
                     var records = await sheets.ReadRangeAsync(spreadsheetId, range);
 
-                    Console.WriteLine($"Reading range: {range}");
-                    Console.WriteLine($"Spreadsheet ID: {spreadsheetId}");
-                    Console.WriteLine("Rows retrieved:");
-
                     foreach (var record in records)
                     {
                         await WalletWallet.CallUsageAsync();
