@@ -49,14 +49,10 @@ namespace ApiClientApp
                 color = "#15803d",
                 logoURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
                 iconURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
-                stripURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
+                //stripURL = "https://josemrom1.github.io/Pbmalaga/images/logo_pena.png",
                 primaryFields = new[]
                 {
                     new { label = "Usuario", value = user ?? string.Empty }
-                },
-                headerFields = new[]
-                {
-                    new { label = "Temp", value = "26/27" }
                 }
             };
 
