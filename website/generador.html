@@ -4,138 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página generada con parámetros</title>
-  <style>
-    :root {
-      color-scheme: light;
-      font-family: Arial, Helvetica, sans-serif;
-      --accent: #16a34a;
-      --bg: #052e16;
-      --panel: #052e16;
-      --text: #ecfdf5;
-      --muted: #bbf7d0;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #022c22, #14532d 45%, #166534);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .card {
-      width: min(900px, 100%);
-      background: rgba(6, 78, 59, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
-      overflow: hidden;
-    }
-
-    .hero {
-      padding: 28px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-      background: linear-gradient(135deg, rgba(22, 163, 74, 0.18), rgba(6, 78, 59, 0.96));
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(191, 219, 254, 0.12);
-      color: #bfdbfe;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 12px 0 8px;
-      font-size: clamp(28px, 7vw, 44px);
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.5;
-      max-width: 700px;
-    }
-
-    .content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      padding: 24px;
-    }
-
-    .field-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .panel {
-      background: rgba(4, 120, 87, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #bbf7d0;
-      margin-bottom: 8px;
-    }
-
-    .value {
-      font-size: 20px;
-      font-weight: 700;
-      color: white;
-      margin: 0;
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .chip {
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: rgba(6, 95, 70, 0.95);
-      color: #ecfdf5;
-      font-size: 12px;
-    }
-
-    code {
-      display: inline-block;
-      background: rgba(148, 163, 184, 0.12);
-      border-radius: 8px;
-      padding: 2px 6px;
-      font-family: ui-monospace, SFMono-Regular, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 13px;
-    }
-
-    @media (max-width: 760px) {
-      .content { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="card">
@@ -177,7 +46,7 @@
         </div>
       </article>
 
-      <article class="panel" style="grid-column: 1 / -1;">
+      <article class="panel full-width">
         <div class="label">Datos del modelo Penista</div>
         <div id="penistaCards" class="chip-row"></div>
       </article>
