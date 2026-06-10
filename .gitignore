@@ -1,1 +1,4 @@
 ApiClientApp/*.json
+
+ApiClientApp/bin/
+ApiClientApp/obj/
