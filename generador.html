@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador dinámico de la Peña</title>
+    <meta name="description" content="Página dinámica de la peña con datos leídos desde la URL." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav-bar">
+        <a class="brand" href="index.html">Peña Betis Málaga</a>
+        <nav class="nav-links">
+          <a href="index.html#inicio">Inicio</a>
+          <a href="index.html#nosotros">Nosotros</a>
+          <a href="https://t.co/wYWbbO3Bao" target="_blank" rel="noopener noreferrer">Únete</a>
+          <a href="index.html#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="wrap hero-grid">
+          <article>
+            <p class="eyebrow">Generador dinámico</p>
+            <h1 id="title">Ficha de la peña</h1>
+            <p class="lede" id="subtitle">Esta vista lee los datos desde la URL y mantiene la misma funcionalidad.</p>
+            <a class="btn" href="index.html">Volver a la página principal</a>
+          </article>
+
+          <aside class="hero-card">
+            <p class="eyebrow">Modelo Penista</p>
+            <h2 id="badge">Modelo Penista</h2>
+            <p id="resumenValue">Penista: —</p>
+            <ul class="mini-list">
+              <li id="nombreValue">Nombre: —</li>
+              <li id="telefonoValue">Teléfono: —</li>
+              <li id="dniValue">DNI: —</li>
+            </ul>
+            <p id="observacionesValue">Los campos de URL se omiten en esta vista.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="nosotros">
+        <div class="wrap">
+          <div class="cards three-up">
+            <article class="card">
+              <h3>Nombre</h3>
+              <p id="cardNombre">—</p>
+            </article>
+            <article class="card">
+              <h3>Teléfono</h3>
+              <p id="cardTelefono">—</p>
+            </article>
+            <article class="card">
+              <h3>DNI</h3>
+              <p id="cardDni">—</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="registro">
+        <div class="wrap">
+          <article class="card">
+            <p class="eyebrow">Datos del modelo Penista</p>
+            <h2>Resumen del contenido dinámico</h2>
+            <ul class="mini-list" id="penistaCards"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <div class="wrap">
+          <article class="card">
+            <p class="eyebrow">Funcionalidad</p>
+            <h2>La misma lógica, otra estructura</h2>
+            <p>Esta página sigue leyendo parámetros desde la URL y actualizando los datos, pero ahora comparte la misma disposición visual que la web principal.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>© 2026 Peña Betis Málaga</p>
+        <p>¡Viva el Real Betis Balompié!</p>
+      </div>
+    </footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const penista = {
+        nombre: params.get('nombre') || 'Jose Maria Romero',
+        telefono: params.get('telefono') || '123456789',
+        dni: params.get('dni') || 'Prueba DNI',
+      };
+
+      document.getElementById('title').textContent = `Ficha de ${penista.nombre}`;
+      document.getElementById('subtitle').textContent = 'Esta vista muestra los campos del modelo Penista y mantiene la funcionalidad dinámica.';
+
+      document.getElementById('nombreValue').textContent = `Nombre: ${penista.nombre}`;
+      document.getElementById('telefonoValue').textContent = `Teléfono: ${penista.telefono}`;
+      document.getElementById('dniValue').textContent = `DNI: ${penista.dni}`;
+
+      document.getElementById('cardNombre').textContent = penista.nombre;
+      document.getElementById('cardTelefono').textContent = penista.telefono;
+      document.getElementById('cardDni').textContent = penista.dni;
+
+      document.getElementById('resumenValue').textContent = `Penista: ${penista.nombre}`;
+      document.getElementById('observacionesValue').textContent = 'Los campos de URL se omiten en esta vista.';
+
+      const cards = document.getElementById('penistaCards');
+      cards.innerHTML = '';
+
+      const fields = [
+        ['Nombre', penista.nombre],
+        ['Teléfono', penista.telefono],
+        ['DNI', penista.dni],
+      ];
+
+      fields.forEach(([label, value]) => {
+        const item = document.createElement('li');
+        item.textContent = `${label}: ${value}`;
+        cards.appendChild(item);
+      });
+
+      document.getElementById('badge').textContent = 'Modelo Penista';
+    </script>
+  </body>
+</html>
+
