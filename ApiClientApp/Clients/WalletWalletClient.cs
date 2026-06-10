@@ -41,14 +41,26 @@ namespace ApiClientApp
             {
                 barcodeValue = $"https://josemrom1.github.io/Pbmalaga/generador.html?nombre={safeUser}&telefono={safeTelefono}&dni={safeDni}",
                 barcodeFormat = "QR",
-                logoText = "Peña Bética de Málaga",
+                logoText = "Peña Betica de Malaga",
+                organizationName = "Jose Maria Romero Lerida",
                 description = "Carnet de Socio",
+                colorPreset = "green",
+                expirationDays = 365,
+                color = "#15803d",
+                logoURL = "https://josemrom1.github.io/Pbmalaga/images/logo_betis.jpeg",
+                iconURL = "https://josemrom1.github.io/Pbmalaga/images/logo_betis.jpeg",
                 primaryFields = new[]
                 {
-                    new { label = "Usuario", value = user }
+                    new { label = "Usuario", value = user ?? string.Empty }
                 },
-                colorPreset = "green",
-                expirationDays = 365
+                headerFields = new[]
+                {
+                    new { label = "Temp", value = "26/27" }
+                },
+                backFields = new[]
+                {
+                    new { label = "Notifications", value = " ", changeMessage = "%@" }
+                }
             };
 
             var json = JsonSerializer.Serialize(payload);
